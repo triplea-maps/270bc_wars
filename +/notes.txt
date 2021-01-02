@@ -1,0 +1,75 @@
+How the "place" has been obtained (no placement picking has been made):
+
+1: 8 Images for determining the polygons for placement has been created, called from "place1Map.png" to "place8Map.png". These images are a collection of zones for which each zone has been enlarged by 6 pixels (so to obtain more placements for the same, even if going out of their actual borders by up to 6 pixels), but without comprising any territories not including centres (the dependent islands) (to avoid placement coordinates being possibly drawn in there) (this is exactly what you get by using only the "Auto Find Polygons" function in the "Polygon grabber", without any other actions but saving the result).
+
+2. 8 polygons.txt has been creater from the 8 placeMap images and the centers.txt, called from "polygonsPlace1.txt" to "polygonsPlace8.txt". Then, all coordinates of these polygons have been pasted into a single polygons for autodetermining the placements, called "polygonsPlace.txt".
+
+3. The polygonsPlace.txt has been temporanely renamed as polygons.txt, only for the automatic placement finder to work with it. The autoplacement has been made with 48x48 100% pixels settings.
+This obtaining the "place(48-48)(auto)" (archived in the "+" folder).
+
+4. The placement picker has been run on the "place(48-48)(auto)", adding (without removing any) additional coordinates for all land zones under 8 placements total, bringing the total placements up to at most 8, but only as long as it appeared feasible to add such additional placement spots.
+The feasibility has been valued on the principle of the added placement square (for 48 per 48 pixels) having at least 7/8 of its area within the zone area (thus also excluding zones' borders, that are actually just "none" area sections of the map).
+This is the full list of all zones having having less than 6 placements for land, before manual additions (when the autoplacements and the placements are the same, this means no manual addition of placements has been made):
+Zone=autoplacements:placements
+Olisipo=6:8
+Genua=7:8
+Arretium=7:8
+Salapia=6:8
+Roma=7:8
+Tarentum=7:8
+Dodona=5:8
+Byzantium=6:8
+Istropolis=6:8
+Olbia=6:8
+Tanais=5:8
+Hermopolis=7:8
+Pax Julia=7:7
+Carthago Nova=7:7
+Stabula=6:7
+Messana=6:7
+Syracuse=7:7
+Lilybaeum=7:7
+Thessalonica=6:7
+Odessus=6:7
+Sidon=6:7
+Scallabis=6:6
+Apollonia=5:6
+Cydonia=6:6
+Delphi=5:5
+Larissa=4:5
+Sparta=5:5
+Salamis=5:5
+Teredon=5:5
+Gades=3:4
+Aleria=4:4
+Athens=1:4
+Corinth=3:3
+Palma=2:2
+Melita=1:1
+Rhodos=1:1
+(the ones having autoplacements=placements are just the same as the "auto")
+Then, verified manually that, in the file, the number of coordinate present matches the intended number, eventually removing the exuberant ones (as it may happen to add unwanted entries, when using the placement piker, usually by creating twice or thrice the same one).
+This obtaining the "place(48-48)(manual)" (archived in the "alt" folder).
+
+5. Then the given coordinates have been reduced by 8 points on the first coordinate (X axis) and by 16 points on the second coordinate (Y axis), to have them centred for 64x64 100% pixels images (that should then overlap of 16 pixels with each other) but moved upwards by 8 pixels (this is due to the fact that the image looks as standing on the territories, so they will look less outside of them if they outboard the territories on top than on bottom).
+This obtaining the "place(first_centred)" (archived in the "alt" folder).
+
+6. Then the first placement coordinate has been moved as being the last placement coordinate, instead, also removing the useless "overflow" entry.
+Exception: The first placement spot of Athens has been moved to second to last position, instead of last (this is because the last one is on the island part of the territory, that is named too).
+The reasons this has been made are:
+1. Normally, the "territoryNames" images are about in the same place as the first placement spot; so, having the first placement spot as the last one should normally assure the territory name being all or mostly visible untill not filled with units (but I did this to sea zones, as well, despite not having image names).
+2. This way, the overflow, if present, will start from the centre of the territory.
+3. As the placement spots for the units are defined around the first, as long as the first one (now last one, instead) is not used, the units will be much more spaced with respect than one another, especially when only a few of them, without actually losing anything in placements numbers.
+This obtaining the "place", that the map uses.
+
+---
+
+These names are all those that have underscores in their "misc" (otherwise, "territoryNames") image files names, but corresponds to same names with spaces instead of underscores anywhere else in the map:
+Cestra_Regina
+Pax_Julia
+Hippo_Regius
+Leptis_Magna
+Emerita_Augusta
+Carthago_Nova
+Lucus_Augusti
+Heraclea_Pontica
